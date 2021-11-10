@@ -5,8 +5,9 @@
   "dependencies": {
     "@ant-design/charts": "^1.2.14",
     "@craco/craco": "^6.1.2",
-    "@pankod/refine": "^1.0.76",
-    "@pankod/refine-supabase": "^0.1.0",
+    "@pankod/refine": "2.0.11",
+    "@pankod/refine-react-router": "2.0.11",
+    "@pankod/refine-supabase": "2.0.11",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",

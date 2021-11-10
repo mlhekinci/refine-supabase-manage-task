@@ -1,4 +1,5 @@
-import { Refine, Resource } from "@pankod/refine";
+import { Refine } from "@pankod/refine";
+import routerProvider from "@pankod/refine-react-router";
 import "styles/antd.less";
 import { dataProvider } from "@pankod/refine-supabase";
 import authProvider from "./authProvider";
@@ -13,18 +14,17 @@ function App() {
       dataProvider={dataProvider(supabaseClient)}
       authProvider={authProvider}
       DashboardPage={Dashboard}
-      >
-      <Resource name="users" list={UserList} />
-
-      <Resource
-        name="tasks"
-        list={TaskList}
-        edit={EditTask}
-        create={TaskCreate}
-        show={TaskShow}
-      />
-
-    </Refine>
+      routerProvider={routerProvider}
+      resources={[{
+        name: "users",
+        list: UserList
+      }, {
+        name: "tasks",
+        list: TaskList,
+        edit: EditTask,
+        create: TaskCreate,
+        show: TaskShow
+      }]} />
   );
 }
 
