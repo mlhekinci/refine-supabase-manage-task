@@ -1,4 +1,4 @@
-# refine-supabase-test
+# refine-supabase-manage-task
 
 
 This project was generated with [superplate](https://github.com/pankod/superplate).
