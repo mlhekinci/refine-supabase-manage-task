@@ -10,7 +10,7 @@ import {
   Button,
 } from "@pankod/refine";
 
-import { ITask, IPriority, IUser, IStatus } from "interfaces";
+import { ITask, IPriority, IStatus, IAuthUser } from "interfaces";
 
 const { RangePicker } = DatePicker
 
@@ -27,10 +27,10 @@ export const Filter: React.FC<{ formProps: FormProps }> = ({ formProps }) => {
     resource: "status"
   });
 
-  const { selectProps: assigneProps } = useSelect<IUser>({
+  const { selectProps: assigneProps } = useSelect<IAuthUser>({
     resource: "users",
     optionValue: "id",
-    optionLabel: "name",
+    optionLabel: "email",
   });
 
   return (

@@ -1,5 +1,5 @@
 import { useShow, Show, Typography, Tag, useOne, DateField } from "@pankod/refine";
-import { ITask, IUser, ILabel, IPriority, IStatus } from "interfaces";
+import { ITask, ILabel, IPriority, IStatus, IAuthUser } from "interfaces";
 
 const { Title, Text } = Typography;
 
@@ -8,7 +8,7 @@ export const TaskShow: React.FC = () => {
   const { data, isLoading } = queryResult;
   const record = data?.data;
 
-  const { data: assigned } = useOne<IUser>({
+  const { data: assigned } = useOne<IAuthUser>({
     resource: "users",
     id: record?.users || "",
   });
@@ -40,7 +40,7 @@ export const TaskShow: React.FC = () => {
 
       <Title level={5}>Assigned To:</Title>
       <Text>
-        <Tag>{assigned?.data?.name ?? "-"}</Tag>
+        <Tag>{assigned?.data?.email ?? "-"}</Tag>
       </Text>
 
       <Title level={5}>Label:</Title>

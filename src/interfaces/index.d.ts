@@ -1,6 +1,6 @@
-export interface IUser {
+export interface IAuthUser {
   id: string;
-  name: string;
+  email: string;
 }
 
 export interface ILabel {
@@ -28,7 +28,7 @@ export interface ITask {
   label: string;
   priority: string;
   status: string;
-  users: string;
+  users: string
 }
 
 export interface ITaskFilterVariables {

@@ -9,7 +9,7 @@ import {
   DatePicker,
 } from "@pankod/refine";
 
-import { ITask, ILabel, IPriority, IUser, IStatus } from "interfaces";
+import { ITask, ILabel, IPriority, IStatus, IAuthUser } from "interfaces";
 
 export const TaskCreate: React.FC<IResourceComponentsProps> = () => {
   const { formProps, saveButtonProps } = useForm<ITask>();
@@ -22,10 +22,10 @@ export const TaskCreate: React.FC<IResourceComponentsProps> = () => {
     resource: "priority",
   });
 
-  const { selectProps: assigneSelectProps } = useSelect<IUser>({
+  const { selectProps: assigneSelectProps } = useSelect<IAuthUser>({
     resource: "users",
     optionValue: "id",
-    optionLabel: "name",
+    optionLabel: "email",
   });
 
   const { selectProps: statusSelectProps } = useSelect<IStatus>({

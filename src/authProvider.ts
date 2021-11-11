@@ -3,9 +3,9 @@ import { AuthProvider } from "@pankod/refine";
 import { supabaseClient } from "utility";
 
 const authProvider: AuthProvider = {
-  login: async ({ username, password }) => {
+  login: async ({ email, password }) => {
     const { user, error } = await supabaseClient.auth.signIn({
-      email: username,
+      email,
       password,
     });
 

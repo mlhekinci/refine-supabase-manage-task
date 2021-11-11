@@ -23,9 +23,9 @@ import {
   ILabel,
   IPriority,
   ITask,
-  IUser,
   ITaskFilterVariables,
   IStatus,
+  IAuthUser,
 } from "interfaces";
 
 import { Filter } from "../task";
@@ -115,7 +115,7 @@ export const TaskList: React.FC<IResourceComponentsProps> = () => {
     ids: priorityIds,
   });
 
-  const { data: assigned } = useMany<IUser>({
+  const { data: assigned } = useMany<IAuthUser>({
     resource: "users",
     ids: assignedIds,
   });
@@ -124,10 +124,6 @@ export const TaskList: React.FC<IResourceComponentsProps> = () => {
     resource: "status",
     ids: statusIds,
   });
-
-  // const labelsCounts = groupBy(labelIds);
-  // const priorityCounts = groupBy(priorityIds);
-  // const statusCount = groupBy(statusIds);
 
   return (
     <Row gutter={[16, 16]}>
@@ -176,7 +172,7 @@ export const TaskList: React.FC<IResourceComponentsProps> = () => {
                 return (
                   <TagField
                     value={
-                      assigned?.data.find((item) => item.id === value)?.name
+                      assigned?.data.find((item) => item.id === value)?.email
                     }
                   />
                 );
@@ -240,6 +236,3 @@ export const TaskList: React.FC<IResourceComponentsProps> = () => {
     </Row>
   );
 };
-
-
-
